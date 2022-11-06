@@ -278,7 +278,7 @@ function toolpkgs {
 	echo -e '#### ADDING TEAMVIEWER KEYRING AND REPO ####\n' ; sleep 1
 
 	# If keyring has been added successfully
-	if wget -qO- https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc 2> /dev/null \ gpg --dearmor --output $keyrings_dir/teamviewer.gpg 2> /dev/null
+	if wget -qO- https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc 2> /dev/null | gpg --dearmor --output $keyrings_dir/teamviewer.gpg 2> /dev/null
 		# Add repo
 		echo "deb [ signed-by=$keyrings_dir/teamviewer.gpg ] https://linux.teamviewer.com/deb stable main" > $repos_dir/teamviewer.list 2> /dev/null
 	else
